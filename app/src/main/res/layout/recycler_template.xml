@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/linear_template"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_margin="@dimen/padding"
         android:focusable="true">
 
@@ -44,9 +44,8 @@
                 <TextView
                     android:id="@+id/text_overview_template"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/margin4dp"
-                    android:gravity="center_vertical"
                     android:text="@string/overview"
                     android:textSize="18sp"
                     android:textStyle="bold" />
