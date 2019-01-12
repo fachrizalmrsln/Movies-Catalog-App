@@ -11,7 +11,6 @@
     <string name="release_date">Release Date</string>
     <string name="default_release_date">06-12-1997</string>
     <string name="synopsis">Synopsis</string>
-
     <string name="toolbar_search">Search Movie</string>
     <string name="toolbar_detail">Detail Movie</string>
 </resources>

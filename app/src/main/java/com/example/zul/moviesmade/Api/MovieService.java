@@ -10,9 +10,10 @@ public interface MovieService {
 
     @GET("search/movie")
     Call<Response>
-    getSearchedMovie(@Query("api_key") String apiKey,
-                     @Query("language") String language,
-                     @Query("query") String query
+    getSearchedMovie(
+            @Query("api_key") String apiKey,
+            @Query("language") String language,
+            @Query("query") String query
     );
 
 }

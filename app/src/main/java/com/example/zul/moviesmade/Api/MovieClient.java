@@ -15,11 +15,13 @@ public class MovieClient {
         Log.d(TAG, "getRetrofit: called");
 
         if (retrofit == null) {
+            Log.d(TAG, "getRetrofit: created new retrofit");
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-        }
+        } else
+            Log.d(TAG, "getRetrofit: reused previous retrofit");
 
         return retrofit;
 

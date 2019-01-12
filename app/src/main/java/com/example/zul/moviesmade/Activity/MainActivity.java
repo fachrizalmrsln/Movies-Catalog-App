@@ -32,11 +32,12 @@ import retrofit2.Callback;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
     private Context mContext;
     private ProgressBar mProgressBar;
-
     private RecyclerView mRecyclerView;
     private EditText mEditTextSearch;
+
     private ArrayList<Result> mArrayList = new ArrayList<>();
 
     private String mLanguage;
@@ -106,9 +107,16 @@ public class MainActivity extends AppCompatActivity {
 
         mProgressBar.setVisibility(View.VISIBLE);
 
-        MovieService mApiMovieService = MovieClient.getRetrofit().create(MovieService.class);
-        Call<Response> responseCall =
-                mApiMovieService.getSearchedMovie(BuildConfig.ApiKey, mLanguage, search);
+        MovieService mApiMovieService = MovieClient.getRetrofit()
+                .create(MovieService.class);
+
+        Call<Response> responseCall = mApiMovieService
+                .getSearchedMovie(
+                        BuildConfig.ApiKey,
+                        mLanguage,
+                        search
+                );
+
         responseCall.enqueue(new Callback<Response>() {
             @Override
             public void onResponse(@NonNull Call<Response> call,
@@ -116,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onResponse: called");
 
                 if (response.body() != null) {
-                    Log.d(TAG, "onResponse.body: not null");
+                    Log.d(TAG, "onResponse.body: data in api not null");
 
                     List<Result> results = response.body().getResults();
 
@@ -125,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     setRecyclerView();
 
                     if (results.isEmpty()) {
-                        Log.d(TAG, "onResponse: not found");
+                        Log.d(TAG, "onResponse: searhed movie not found");
                         Toast.makeText(mContext, search + " not found",
                                 Toast.LENGTH_SHORT).show();
                     }
@@ -133,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
                     mProgressBar.setVisibility(View.GONE);
 
                 } else {
-                    Log.d(TAG, "onResponse.body: not found");
-                    Toast.makeText(mContext, search + " not found",
+                    Log.d(TAG, "onResponse.body: data in api not found");
+                    Toast.makeText(mContext,  "Something went wrong with the api",
                             Toast.LENGTH_SHORT).show();
 
                     mProgressBar.setVisibility(View.GONE);
