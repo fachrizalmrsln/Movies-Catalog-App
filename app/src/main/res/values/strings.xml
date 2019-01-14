@@ -13,4 +13,6 @@
     <string name="synopsis">Synopsis</string>
     <string name="toolbar_search">Search Movie</string>
     <string name="toolbar_detail">Detail Movie</string>
+    <string name="image_poster">image_poster</string>
+    <string name="image_backdrop">image_backdrop</string>
 </resources>

@@ -41,7 +41,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 .inflate(R.layout.recycler_template, viewGroup, false);
 
         return new MovieHolder(view);
-
     }
 
     @Override

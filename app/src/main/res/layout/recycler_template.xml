@@ -11,48 +11,42 @@
         android:layout_margin="@dimen/padding"
         android:focusable="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/image_template"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:contentDescription="@string/image_poster"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_launcher_background" />
 
-            <ImageView
-                android:id="@+id/image_template"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:scaleType="fitStart"
-                android:src="@drawable/ic_launcher_background" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.5"
-                android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_title_template"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin4dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/title"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/text_title_template"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin4dp"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="@string/title"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/text_overview_template"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:layout_margin="@dimen/margin4dp"
-                    android:text="@string/overview"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/text_overview_template"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin4dp"
+                android:ellipsize="end"
+                android:lines="3"
+                android:text="@string/overview"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
