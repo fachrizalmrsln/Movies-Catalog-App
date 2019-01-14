@@ -1,9 +1,9 @@
 package com.example.zul.moviesmade.Activity;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,8 +19,8 @@ import com.example.zul.moviesmade.Adapter.MovieAdapter;
 import com.example.zul.moviesmade.Api.MovieClient;
 import com.example.zul.moviesmade.Api.MovieService;
 import com.example.zul.moviesmade.BuildConfig;
-import com.example.zul.moviesmade.Model.Result;
 import com.example.zul.moviesmade.Model.Response;
+import com.example.zul.moviesmade.Model.Result;
 import com.example.zul.moviesmade.R;
 
 import java.util.ArrayList;
