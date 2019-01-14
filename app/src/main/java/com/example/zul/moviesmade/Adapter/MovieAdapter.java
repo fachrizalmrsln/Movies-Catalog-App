@@ -78,6 +78,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 mContext.startActivity(intent);
             }
         });
+
     }
 
     @Override

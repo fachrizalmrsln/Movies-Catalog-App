@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     setRecyclerView();
 
                     if (results.isEmpty()) {
-                        Log.d(TAG, "onResponse: searhed movie not found");
+                        Log.d(TAG, "onResponse: searched movie not found");
                         Toast.makeText(mContext, search + " not found",
                                 Toast.LENGTH_SHORT).show();
                     }
