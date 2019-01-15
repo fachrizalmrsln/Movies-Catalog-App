@@ -18,7 +18,10 @@ import com.example.zul.moviesmade.Activity.DetailMovieActivity;
 import com.example.zul.moviesmade.Model.Result;
 import com.example.zul.moviesmade.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder> {
 
@@ -55,6 +58,20 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
         movieHolder.textViewTitle.setText(mResults.get(position).getTitle());
         movieHolder.textViewOverview.setText(mResults.get(position).getOverview());
+
+        String releaseDate = mResults.get(position).getReleaseDate();
+
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = dateFormat.parse(releaseDate);
+            @SuppressLint("SimpleDateFormat")
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+            releaseDate = simpleDateFormat.format(date);
+            mResults.get(position).setReleaseDate(releaseDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         movieHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

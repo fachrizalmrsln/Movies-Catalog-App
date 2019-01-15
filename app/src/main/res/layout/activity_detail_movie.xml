@@ -136,9 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relative_rate"
-                android:layout_marginLeft="@dimen/margin4dp"
                 android:layout_marginTop="@dimen/margin"
-                android:layout_marginRight="@dimen/margin4dp"
                 android:layout_toRightOf="@+id/release_date"
                 android:text="@string/default_release_date"
                 android:textSize="@dimen/text18sp" />

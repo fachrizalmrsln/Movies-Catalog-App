@@ -8,7 +8,7 @@
     <string name="popularity">Popularity</string>
     <string name="default_popular">0</string>
     <string name="rate_count">Rate Count</string>
-    <string name="release_date">Release Date</string>
+    <string name="release_date">Release Date :</string>
     <string name="default_release_date">06-12-1997</string>
     <string name="synopsis">Synopsis</string>
     <string name="toolbar_search">Search Movie</string>
