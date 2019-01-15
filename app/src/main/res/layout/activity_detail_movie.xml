@@ -52,6 +52,7 @@
                     android:layout_marginLeft="@dimen/margin4dp"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_marginRight="@dimen/margin4dp"
+                    android:contentDescription="@string/image_backdrop"
                     android:src="@drawable/ic_star_24dp" />
 
                 <TextView
@@ -73,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/star"
                     android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:text="@string/popularity"
                     android:textColor="@color/colorAccent"
@@ -84,9 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/star"
-                    android:layout_marginLeft="@dimen/margin4dp"
                     android:layout_marginTop="@dimen/margin4dp"
-                    android:layout_marginRight="@dimen/margin4dp"
                     android:layout_toRightOf="@id/text_popular"
                     android:text="@string/default_popular"
                     android:textColor="@color/colorAccent"
@@ -98,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_popularity_detail"
                     android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:text="@string/rate_count"
                     android:textColor="@color/colorAccent"
@@ -109,9 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_popular"
-                    android:layout_marginLeft="@dimen/margin4dp"
                     android:layout_marginTop="@dimen/margin4dp"
-                    android:layout_marginRight="@dimen/margin4dp"
                     android:layout_toRightOf="@+id/text_rate_count"
                     android:text="@string/default_popular"
                     android:textColor="@color/colorAccent"
