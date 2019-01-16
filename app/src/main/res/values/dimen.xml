@@ -7,6 +7,7 @@
     <dimen name="buttonSearchHeight">40dp</dimen>
     <dimen name="oneDp">1dp</dimen>
     <dimen name="imageTemplateWidth">70dp</dimen>
+    <dimen name="appBarHeight">50dp</dimen>
 
     <dimen name="text16sp">16sp</dimen>
     <dimen name="text18sp">18sp</dimen>

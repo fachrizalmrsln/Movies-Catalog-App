@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Submission 1</string>
+    <string name="app_name">Submission 2</string>
+
     <string name="search_here">Search Movie Here</string>
     <string name="text_button_search">Search</string>
     <string name="title">Title</string>
@@ -15,4 +16,10 @@
     <string name="toolbar_detail">Detail Movie</string>
     <string name="image_poster">image_poster</string>
     <string name="image_backdrop">image_backdrop</string>
+    <string name="tab_1">Tab 1</string>
+    <string name="tab_2">Tab 2</string>
+    <string name="search_menu">Search Menu</string>
+    <string name="language_menu">Language Menu</string>
+    <string name="toolbar_main">Movies</string>
+    <string name="toolbar_language">Settings Language</string>
 </resources>
