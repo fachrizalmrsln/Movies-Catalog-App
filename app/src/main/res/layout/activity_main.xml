@@ -13,15 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
         android:background="@drawable/rounded_box"
-        android:padding="@dimen/padding"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="@dimen/padding">
 
         <EditText
             android:id="@+id/et_search_main"
-            android:layout_weight="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="4"
             android:background="@android:color/transparent"
             android:hint="@string/search_here"
             android:inputType="textCapWords"
@@ -29,9 +29,9 @@
 
         <Button
             android:id="@+id/btn_search_main"
+            android:layout_width="@dimen/buttonSearchWidth"
+            android:layout_height="@dimen/buttonSearchHeight"
             android:layout_weight="1"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
             android:background="@drawable/rounded_button"
             android:text="@string/text_button_search"
             android:textColor="@android:color/white" />
@@ -44,10 +44,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_main"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin" />
+        android:layout_margin="@dimen/margin"
+        tools:listitem="@layout/recycler_template" />
 
 </LinearLayout>

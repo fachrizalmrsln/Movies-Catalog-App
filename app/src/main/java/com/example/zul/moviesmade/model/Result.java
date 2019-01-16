@@ -1,5 +1,6 @@
-package com.example.zul.moviesmade.Model;
+package com.example.zul.moviesmade.model;
 
+import com.example.zul.moviesmade.BuildConfig;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -71,7 +72,7 @@ public class Result {
     }
 
     public String getPosterPath() {
-        return "https://image.tmdb.org/t/p/w500" + posterPath;
+        return BuildConfig.POSTER_PATH + posterPath;
     }
 
     public void setPosterPath(String posterPath) {
@@ -143,7 +144,7 @@ public class Result {
     }
 
     public String getBackdropPath() {
-        return "https://image.tmdb.org/t/p/w500" + backdropPath;
+        return BuildConfig.BACKDROP_PATH + backdropPath;
     }
 
     public void setBackdropPath(String backdropPath) {

@@ -1,6 +1,8 @@
-package com.example.zul.moviesmade.Api;
+package com.example.zul.moviesmade.api;
 
 import android.util.Log;
+
+import com.example.zul.moviesmade.BuildConfig;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -8,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MovieClient {
 
     private static final String TAG = "MovieClient";
-    private static final String BASE_URL = "https://api.themoviedb.org/3/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getRetrofit() {
@@ -17,7 +18,7 @@ public class MovieClient {
         if (retrofit == null) {
             Log.d(TAG, "getRetrofit: created new retrofit");
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(BuildConfig.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         } else

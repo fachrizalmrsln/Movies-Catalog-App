@@ -1,6 +1,6 @@
-package com.example.zul.moviesmade.Api;
+package com.example.zul.moviesmade.api;
 
-import com.example.zul.moviesmade.Model.Response;
+import com.example.zul.moviesmade.model.Response;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

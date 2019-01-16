@@ -1,13 +1,7 @@
-package com.example.zul.moviesmade.Activity;
+package com.example.zul.moviesmade.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,33 +9,44 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.zul.moviesmade.Adapter.MovieAdapter;
-import com.example.zul.moviesmade.Api.MovieClient;
-import com.example.zul.moviesmade.Api.MovieService;
 import com.example.zul.moviesmade.BuildConfig;
-import com.example.zul.moviesmade.Model.Response;
-import com.example.zul.moviesmade.Model.Result;
 import com.example.zul.moviesmade.R;
+import com.example.zul.moviesmade.adapter.MovieAdapter;
+import com.example.zul.moviesmade.api.MovieClient;
+import com.example.zul.moviesmade.api.MovieService;
+import com.example.zul.moviesmade.model.Response;
+import com.example.zul.moviesmade.model.Result;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
     private Context mContext;
-    private ProgressBar mProgressBar;
-    private RecyclerView mRecyclerView;
-    private EditText mEditTextSearch;
-
     private ArrayList<Result> mArrayList = new ArrayList<>();
-
     private String mLanguage;
     private String mMovieSearch;
+
+    @BindView(R.id.recycler_view_main)
+    RecyclerView mRecyclerView;
+    @BindView(R.id.et_search_main)
+    EditText mEditTextSearch;
+    @BindView(R.id.progress_bar_main)
+    ProgressBar mProgressBar;
+    @BindView(R.id.btn_search_main)
+    Button mButtonSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,32 +58,23 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.toolbar_search);
 
+        ButterKnife.bind(this);
         mContext = this;
-
-        mRecyclerView = findViewById(R.id.recycler_view_main);
-        mEditTextSearch = findViewById(R.id.et_search_main);
-        mProgressBar = findViewById(R.id.progress_bar_main);
 
         mProgressBar.setVisibility(View.GONE);
 
         mLanguage = "en-US";
 
-        Button mButtonSearch = findViewById(R.id.btn_search_main);
-        mButtonSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked");
+        mButtonSearch.setOnClickListener(v -> {
+            Log.d(TAG, "onClick: clicked");
 
-                mMovieSearch = mEditTextSearch.getText().toString().trim();
+            mMovieSearch = mEditTextSearch.getText().toString().trim();
 
-                if (mMovieSearch.isEmpty())
-                    mEditTextSearch.setError("Search something");
-                else {
-
-                    setRecyclerView();
-                    getSearchedMovie(mMovieSearch);
-
-                }
+            if (mMovieSearch.isEmpty())
+                mEditTextSearch.setError("Search something");
+            else {
+                setRecyclerView();
+                getSearchedMovie(mMovieSearch);
             }
         });
 
@@ -99,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
 
         mProgressBar.setVisibility(View.GONE);
-
     }
 
     private void getSearchedMovie(final String search) {
@@ -112,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         Call<Response> responseCall = mApiMovieService
                 .getSearchedMovie(
-                        BuildConfig.ApiKey,
+                        BuildConfig.API_KEY,
                         mLanguage,
                         search
                 );
@@ -142,13 +137,11 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     Log.d(TAG, "onResponse.body: data in api not found");
-                    Toast.makeText(mContext,  "Something went wrong with the api",
+                    Toast.makeText(mContext, "Something went wrong with the api",
                             Toast.LENGTH_SHORT).show();
 
                     mProgressBar.setVisibility(View.GONE);
-
                 }
-
             }
 
             @Override
@@ -158,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(mContext, "Bad Internet Connection",
                         Toast.LENGTH_SHORT).show();
-
             }
 
         });

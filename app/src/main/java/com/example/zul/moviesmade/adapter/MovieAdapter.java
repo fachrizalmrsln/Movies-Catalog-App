@@ -1,10 +1,8 @@
-package com.example.zul.moviesmade.Adapter;
+package com.example.zul.moviesmade.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +12,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.zul.moviesmade.Activity.DetailMovieActivity;
-import com.example.zul.moviesmade.Model.Result;
 import com.example.zul.moviesmade.R;
+import com.example.zul.moviesmade.activity.DetailMovieActivity;
+import com.example.zul.moviesmade.model.Result;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder> {
 
@@ -73,26 +76,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             e.printStackTrace();
         }
 
-        movieHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, DetailMovieActivity.class);
-                intent.putExtra(DetailMovieActivity.EXTRA_TITLE,
-                        mResults.get(position).getTitle());
-                intent.putExtra(DetailMovieActivity.EXTRA_VOTE_AVERAGE,
-                        Double.toString(mResults.get(position).getVoteAverage()));
-                intent.putExtra(DetailMovieActivity.EXTRA_POPULARITY,
-                        Double.toString(mResults.get(position).getPopularity()));
-                intent.putExtra(DetailMovieActivity.EXTRA_VOTE_COUNT,
-                        Integer.toString(mResults.get(position).getVoteCount()));
-                intent.putExtra(DetailMovieActivity.EXTRA_RELEASE_DATE,
-                        mResults.get(position).getReleaseDate());
-                intent.putExtra(DetailMovieActivity.EXTRA_OVERVIEW,
-                        mResults.get(position).getOverview());
-                intent.putExtra(DetailMovieActivity.EXTRA_BACKDROP_PATH,
-                        mResults.get(position).getBackdropPath());
-                mContext.startActivity(intent);
-            }
+        movieHolder.linearLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, DetailMovieActivity.class);
+            intent.putExtra(DetailMovieActivity.EXTRA_TITLE,
+                    mResults.get(position).getTitle());
+            intent.putExtra(DetailMovieActivity.EXTRA_VOTE_AVERAGE,
+                    Double.toString(mResults.get(position).getVoteAverage()));
+            intent.putExtra(DetailMovieActivity.EXTRA_POPULARITY,
+                    Double.toString(mResults.get(position).getPopularity()));
+            intent.putExtra(DetailMovieActivity.EXTRA_VOTE_COUNT,
+                    Integer.toString(mResults.get(position).getVoteCount()));
+            intent.putExtra(DetailMovieActivity.EXTRA_RELEASE_DATE,
+                    mResults.get(position).getReleaseDate());
+            intent.putExtra(DetailMovieActivity.EXTRA_OVERVIEW,
+                    mResults.get(position).getOverview());
+            intent.putExtra(DetailMovieActivity.EXTRA_BACKDROP_PATH,
+                    mResults.get(position).getBackdropPath());
+            mContext.startActivity(intent);
         });
 
     }
@@ -104,19 +104,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     class MovieHolder extends RecyclerView.ViewHolder {
 
-        private LinearLayout linearLayout;
-        private ImageView imageView;
-        private TextView textViewTitle;
-        private TextView textViewOverview;
+        @BindView(R.id.linear_template)
+        LinearLayout linearLayout;
+        @BindView(R.id.image_template)
+        ImageView imageView;
+        @BindView(R.id.text_title_template)
+        TextView textViewTitle;
+        @BindView(R.id.text_overview_template)
+        TextView textViewOverview;
 
         private MovieHolder(@NonNull View itemView) {
             super(itemView);
-
-            linearLayout = itemView.findViewById(R.id.linear_template);
-            imageView = itemView.findViewById(R.id.image_template);
-            textViewTitle = itemView.findViewById(R.id.text_title_template);
-            textViewOverview = itemView.findViewById(R.id.text_overview_template);
-
+            ButterKnife.bind(this, itemView);
         }
 
     }

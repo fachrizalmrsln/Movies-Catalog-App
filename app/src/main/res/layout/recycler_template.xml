@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/image_template"
-            android:layout_width="70dp"
+            android:layout_width="@dimen/imageTemplateWidth"
             android:layout_height="match_parent"
             android:contentDescription="@string/image_poster"
             android:scaleType="fitStart"
@@ -34,7 +34,7 @@
                 android:singleLine="true"
                 android:text="@string/title"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/text18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:ellipsize="end"
                 android:lines="3"
                 android:text="@string/overview"
-                android:textSize="18sp"
+                android:textSize="@dimen/text18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -54,7 +54,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/oneDp"
         android:layout_marginLeft="@dimen/padding"
         android:layout_marginRight="@dimen/padding"
         android:background="@android:color/darker_gray" />
