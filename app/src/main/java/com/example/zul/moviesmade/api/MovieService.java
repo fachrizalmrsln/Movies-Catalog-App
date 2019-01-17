@@ -16,4 +16,18 @@ public interface MovieService {
             @Query("query") String query
     );
 
+    @GET("movie/now_playing")
+    Call<Response>
+    getNowPlayingMovie(
+            @Query("api_key") String apiKey,
+            @Query("language") String language
+    );
+
+    @GET("movie/upcoming")
+    Call<Response>
+    getUpComingMovie(
+            @Query("api_key") String apiKey,
+            @Query("language") String language
+    );
+
 }

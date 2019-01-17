@@ -24,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private Context mContext;
-    private TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager());
-
+    private TabAdapter tabAdapter;
     @BindView(R.id.toolbar_tab)
     Toolbar toolbar;
     @BindView(R.id.tab_main)
@@ -42,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mContext = this;
 
+        tabAdapter = new TabAdapter(getSupportFragmentManager());
+
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.toolbar_main);
 
@@ -51,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setViewPagerMain(ViewPager viewPagerMain) {
-        tabAdapter.addNewFragment(new NowPlayingFragment(), "Now Playing");
-        tabAdapter.addNewFragment(new UpComingFragment(), "Up Coming");
+        Log.d(TAG, "setViewPagerMain: called");
+        tabAdapter.addNewFragment(new NowPlayingFragment(), getResources().getString(R.string.now_playing));
+        tabAdapter.addNewFragment(new UpComingFragment(), getResources().getString(R.string.up_coming));
         viewPagerMain.setAdapter(tabAdapter);
     }
 

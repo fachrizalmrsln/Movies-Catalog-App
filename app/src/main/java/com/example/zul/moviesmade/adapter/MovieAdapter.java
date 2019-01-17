@@ -60,10 +60,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 .into(movieHolder.imageView);
 
         movieHolder.textViewTitle.setText(mResults.get(position).getTitle());
+
+        if (mResults.get(position).getOverview().length() < 4)
+            mResults.get(position).setOverview("Tidak tersedia dalam Bahasa Indonesia");
+
         movieHolder.textViewOverview.setText(mResults.get(position).getOverview());
 
         String releaseDate = mResults.get(position).getReleaseDate();
-
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {

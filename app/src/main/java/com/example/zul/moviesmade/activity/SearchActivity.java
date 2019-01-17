@@ -19,6 +19,7 @@ import com.example.zul.moviesmade.model.Result;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,10 +36,9 @@ public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";
     private Context mContext;
-    private ArrayList<Result> mArrayList = new ArrayList<>();
+    private ArrayList<Result> mArrayList;
     private String mLanguage;
     private String mMovieSearch;
-
     @BindView(R.id.recycler_view_main)
     RecyclerView mRecyclerView;
     @BindView(R.id.et_search_main)
@@ -47,6 +47,8 @@ public class SearchActivity extends AppCompatActivity {
     ProgressBar mProgressBar;
     @BindView(R.id.btn_search_main)
     Button mButtonSearch;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +56,13 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         Log.d(TAG, "onCreate: called");
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.toolbar_search);
-
         ButterKnife.bind(this);
         mContext = this;
 
-        mLanguage = "en-US";
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.toolbar_search);
+
+        mArrayList = new ArrayList<>();
 
         mProgressBar.setVisibility(View.GONE);
 
@@ -72,12 +73,26 @@ public class SearchActivity extends AppCompatActivity {
 
             if (mMovieSearch.isEmpty())
                 mEditTextSearch.setError("Search something");
-            else {
-                setRecyclerView();
-                getSearchedMovie(mMovieSearch);
-            }
+            else
+                inIteViews(mMovieSearch);
         });
 
+    }
+
+    private void inIteViews(String mMovieSearch) {
+        checkLanguage();
+        getSearchedMovie(mMovieSearch);
+    }
+
+    private void checkLanguage() {
+        Log.d(TAG, "checkLanguage: called");
+
+        String mCurrentLanguage = Locale.getDefault().getLanguage();
+
+        if (mCurrentLanguage.equals("in"))
+            mLanguage = "id-ID";
+        else
+            mLanguage = "en-US";
     }
 
     private void setRecyclerView() {
@@ -132,23 +147,18 @@ public class SearchActivity extends AppCompatActivity {
                         Toast.makeText(mContext, search + " not found",
                                 Toast.LENGTH_SHORT).show();
                     }
-
-                    mProgressBar.setVisibility(View.GONE);
-
                 } else {
                     Log.d(TAG, "onResponse.body: data in api not found");
                     Toast.makeText(mContext, "Something went wrong with the api",
                             Toast.LENGTH_SHORT).show();
-
-                    mProgressBar.setVisibility(View.GONE);
                 }
+                mProgressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(@NonNull Call<Response> call,
                                   @NonNull Throwable t) {
                 Log.d(TAG, "onFailure: " + t);
-
                 Toast.makeText(mContext, "Bad Internet Connection",
                         Toast.LENGTH_SHORT).show();
             }
@@ -162,4 +172,5 @@ public class SearchActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
 }

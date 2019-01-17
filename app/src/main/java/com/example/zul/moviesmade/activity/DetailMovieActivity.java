@@ -16,7 +16,6 @@ import butterknife.ButterKnife;
 
 public class DetailMovieActivity extends AppCompatActivity {
 
-    private static final String TAG = "DetailMovieActivity";
     public static final String EXTRA_TITLE = "extra_title";
     public static final String EXTRA_VOTE_AVERAGE = "extra_vote_average";
     public static final String EXTRA_POPULARITY = "extra_popular";
@@ -24,7 +23,7 @@ public class DetailMovieActivity extends AppCompatActivity {
     public static final String EXTRA_RELEASE_DATE = "extra_release_date";
     public static final String EXTRA_OVERVIEW = "extra_over_view";
     public static final String EXTRA_BACKDROP_PATH = "extra_backdrop_path";
-
+    private static final String TAG = "DetailMovieActivity";
     @BindView(R.id.text_name_detail)
     TextView textViewTitle;
     @BindView(R.id.text_vote_average_detail)
@@ -39,6 +38,8 @@ public class DetailMovieActivity extends AppCompatActivity {
     TextView textViewOverView;
     @BindView(R.id.image_detail)
     ImageView imageViewBackDrop;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +47,11 @@ public class DetailMovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_movie);
         Log.d(TAG, "onCreate: called");
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.toolbar_detail);
-
         ButterKnife.bind(this);
         Context mContext = this;
+
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.toolbar_detail);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

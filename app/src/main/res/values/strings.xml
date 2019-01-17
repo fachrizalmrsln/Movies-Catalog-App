@@ -4,22 +4,27 @@
     <string name="search_here">Search Movie Here</string>
     <string name="text_button_search">Search</string>
     <string name="title">Title</string>
-    <string name="overview">Overview</string>
-    <string name="default_rate">0.0</string>
+    <string name="overview" translatable="false">Overview</string>
+    <string name="default_rate" translatable="false">0.0</string>
     <string name="popularity">Popularity :</string>
-    <string name="default_popular">0</string>
+    <string name="default_popular" translatable="false">0</string>
     <string name="rate_count">Rate Count :</string>
     <string name="release_date">Release Date :</string>
-    <string name="default_release_date">06December1997</string>
+    <string name="default_release_date" translatable="false">06December1997</string>
     <string name="synopsis">Synopsis</string>
     <string name="toolbar_search">Search Movie</string>
     <string name="toolbar_detail">Detail Movie</string>
-    <string name="image_poster">image_poster</string>
-    <string name="image_backdrop">image_backdrop</string>
-    <string name="tab_1">Tab 1</string>
-    <string name="tab_2">Tab 2</string>
+    <string name="image_poster" translatable="false">image_poster</string>
+    <string name="image_backdrop" translatable="false">image_backdrop</string>
+    <string name="tab_1" translatable="false">Tab 1</string>
+    <string name="tab_2" translatable="false">Tab 2</string>
     <string name="search_menu">Search Menu</string>
     <string name="language_menu">Language Menu</string>
     <string name="toolbar_main">Movies</string>
     <string name="toolbar_language">Settings Language</string>
+    <string name="language">Change Language</string>
+    <string name="current_language">English (US)</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="up_coming">Up Coming</string>
+    <string name="checklist_language" translatable="false">Checklist Language</string>
 </resources>
