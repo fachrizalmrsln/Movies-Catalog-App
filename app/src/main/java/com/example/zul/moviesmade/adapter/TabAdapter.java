@@ -29,16 +29,19 @@ public class TabAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
+        Log.d(TAG, "getPageTitle: called");
         return mStringList.get(position);
     }
 
     @Override
     public Fragment getItem(int position) {
+        Log.d(TAG, "getItem: called");
         return mFragmentList.get(position);
     }
 
     @Override
     public int getCount() {
+        Log.d(TAG, "getCount: called");
         return mStringList.size();
     }
 }

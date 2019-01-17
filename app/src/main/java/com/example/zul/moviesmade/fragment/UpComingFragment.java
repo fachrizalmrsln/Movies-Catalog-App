@@ -70,6 +70,7 @@ public class UpComingFragment extends Fragment {
     }
 
     private void inItViews() {
+        Log.d(TAG, "inItViews: called");
         checkLanguage();
         getUpComingMovie();
     }

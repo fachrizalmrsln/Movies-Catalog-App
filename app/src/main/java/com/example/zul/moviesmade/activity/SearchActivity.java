@@ -72,7 +72,7 @@ public class SearchActivity extends AppCompatActivity {
             mMovieSearch = mEditTextSearch.getText().toString().trim();
 
             if (mMovieSearch.isEmpty())
-                mEditTextSearch.setError("Search something");
+                mEditTextSearch.setError(getResources().getString(R.string.empty_search));
             else
                 inIteViews(mMovieSearch);
         });
@@ -80,6 +80,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void inIteViews(String mMovieSearch) {
+        Log.d(TAG, "inIteViews: called");
         checkLanguage();
         getSearchedMovie(mMovieSearch);
     }
@@ -170,6 +171,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
+        Log.d(TAG, "finish: called");
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 

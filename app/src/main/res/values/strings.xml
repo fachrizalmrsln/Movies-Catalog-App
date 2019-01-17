@@ -27,4 +27,5 @@
     <string name="now_playing">Now Playing</string>
     <string name="up_coming">Up Coming</string>
     <string name="checklist_language" translatable="false">Checklist Language</string>
+    <string name="empty_search">search something</string>
 </resources>

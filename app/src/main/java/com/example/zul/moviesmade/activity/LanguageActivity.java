@@ -60,6 +60,7 @@ public class LanguageActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
+        Log.d(TAG, "finish: called");
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 

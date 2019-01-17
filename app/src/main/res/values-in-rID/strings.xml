@@ -18,4 +18,5 @@
     <string name="current_language">Bahasa Indonesia (ID)</string>
     <string name="up_coming">Segera Tayang</string>
     <string name="now_playing">Sedang Tayang</string>
+    <string name="empty_search">cari sesuatu</string>
 </resources>

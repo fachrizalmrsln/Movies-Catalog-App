@@ -51,26 +51,6 @@ public class Result {
     @Expose
     private Double voteAverage;
 
-    public Result(String posterPath, Boolean adult, String overview, String releaseDate,
-                  List<Integer> genreIds, String id, String originalTitle, String originalLanguage,
-                  String title, String backdropPath, Double popularity, Integer voteCount,
-                  Boolean video, Double voteAverage) {
-        this.posterPath = posterPath;
-        this.adult = adult;
-        this.overview = overview;
-        this.releaseDate = releaseDate;
-        this.genreIds = genreIds;
-        this.id = id;
-        this.originalTitle = originalTitle;
-        this.originalLanguage = originalLanguage;
-        this.title = title;
-        this.backdropPath = backdropPath;
-        this.popularity = popularity;
-        this.voteCount = voteCount;
-        this.video = video;
-        this.voteAverage = voteAverage;
-    }
-
     public String getPosterPath() {
         return BuildConfig.POSTER_PATH + posterPath;
     }
@@ -182,6 +162,5 @@ public class Result {
     public void setVoteAverage(Double voteAverage) {
         this.voteAverage = voteAverage;
     }
-
 
 }

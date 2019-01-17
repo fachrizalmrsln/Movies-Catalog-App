@@ -102,11 +102,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     @Override
     public int getItemCount() {
+        Log.d(TAG, "getItemCount: called");
         return mResults.size();
     }
 
     class MovieHolder extends RecyclerView.ViewHolder {
 
+        private static final String TAG = "MovieHolder";
         @BindView(R.id.linear_template)
         LinearLayout linearLayout;
         @BindView(R.id.image_template)
@@ -118,6 +120,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
         private MovieHolder(@NonNull View itemView) {
             super(itemView);
+            Log.d(TAG, "MovieHolder: called");
             ButterKnife.bind(this, itemView);
         }
 
