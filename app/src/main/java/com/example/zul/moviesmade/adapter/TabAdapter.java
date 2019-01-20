@@ -44,4 +44,5 @@ public class TabAdapter extends FragmentPagerAdapter {
         Log.d(TAG, "getCount: called");
         return mStringList.size();
     }
+
 }

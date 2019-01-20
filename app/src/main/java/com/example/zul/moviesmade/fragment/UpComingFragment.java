@@ -43,7 +43,7 @@ public class UpComingFragment extends Fragment {
     @BindView(R.id.recycler_view_up_coming)
     RecyclerView mRecyclerView;
     private Context mContext;
-    private ArrayList<Result> mArrayList = new ArrayList<>();
+    private ArrayList<Result> mArrayList;
     private String mLanguage;
 
     @Nullable
@@ -56,6 +56,8 @@ public class UpComingFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         mContext = getContext();
+
+        mArrayList = new ArrayList<>();
 
         mProgressBar.setVisibility(View.GONE);
 

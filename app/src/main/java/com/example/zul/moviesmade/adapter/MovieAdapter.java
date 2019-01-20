@@ -81,6 +81,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
         movieHolder.linearLayout.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, DetailMovieActivity.class);
+            intent.putExtra(DetailMovieActivity.EXTRA_ID, mResults.get(position).getId());
             intent.putExtra(DetailMovieActivity.EXTRA_TITLE,
                     mResults.get(position).getTitle());
             intent.putExtra(DetailMovieActivity.EXTRA_VOTE_AVERAGE,
@@ -93,6 +94,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                     mResults.get(position).getReleaseDate());
             intent.putExtra(DetailMovieActivity.EXTRA_OVERVIEW,
                     mResults.get(position).getOverview());
+            intent.putExtra(DetailMovieActivity.EXTRA_POSTER_PATH,
+                    mResults.get(position).getPosterPath());
             intent.putExtra(DetailMovieActivity.EXTRA_BACKDROP_PATH,
                     mResults.get(position).getBackdropPath());
             mContext.startActivity(intent);
@@ -108,7 +111,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     class MovieHolder extends RecyclerView.ViewHolder {
 
-        private static final String TAG = "MovieHolder";
+        private static final String TAG = "FavoriteHolder";
         @BindView(R.id.linear_template)
         LinearLayout linearLayout;
         @BindView(R.id.image_template)
@@ -120,7 +123,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
         private MovieHolder(@NonNull View itemView) {
             super(itemView);
-            Log.d(TAG, "MovieHolder: called");
+            Log.d(TAG, "FavoriteHolder: called");
             ButterKnife.bind(this, itemView);
         }
 

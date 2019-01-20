@@ -19,4 +19,7 @@
     <string name="up_coming">Segera Tayang</string>
     <string name="now_playing">Sedang Tayang</string>
     <string name="empty_search">cari sesuatu</string>
+    <string name="favorite">Favorit</string>
+    <string name="seem_s_you_have_no_favorite_movie_yet">Sepertinya kamu belum memiliki Film Favorite,</string>
+    <string name="try_to_add_some">Coba untuk menambahkan Favorite terlebih dahulu!</string>
 </resources>

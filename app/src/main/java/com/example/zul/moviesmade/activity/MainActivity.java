@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.adapter.TabAdapter;
+import com.example.zul.moviesmade.fragment.FavoriteFragment;
 import com.example.zul.moviesmade.fragment.NowPlayingFragment;
 import com.example.zul.moviesmade.fragment.UpComingFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "setViewPagerMain: called");
         tabAdapter.addNewFragment(new NowPlayingFragment(), getResources().getString(R.string.now_playing));
         tabAdapter.addNewFragment(new UpComingFragment(), getResources().getString(R.string.up_coming));
+        tabAdapter.addNewFragment(new FavoriteFragment(), getResources().getString(R.string.favorite));
         viewPagerMain.setAdapter(tabAdapter);
     }
 

@@ -26,6 +26,11 @@
     <string name="current_language">English (US)</string>
     <string name="now_playing">Now Playing</string>
     <string name="up_coming">Up Coming</string>
+    <string name="favorite">Favorite</string>
     <string name="checklist_language" translatable="false">Checklist Language</string>
     <string name="empty_search">search something</string>
+    <string name="favorite_menu" translatable="false">favorite_menu</string>
+    <string name="upz" translatable="false">Upz,..</string>
+    <string name="seem_s_you_have_no_favorite_movie_yet">Seem\'s you have no Favorite Movie yet,</string>
+    <string name="try_to_add_some">Let\'s try to add some Favorite first!</string>
 </resources>
