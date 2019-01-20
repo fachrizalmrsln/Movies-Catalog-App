@@ -63,7 +63,7 @@
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_marginRight="@dimen/margin4dp"
                     android:layout_toRightOf="@id/star"
-                    tools:text="@string/default_rate"
+                    tools:text="@string/_0_0"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text18sp"
                     android:textStyle="bold" />
@@ -88,7 +88,7 @@
                     android:layout_below="@+id/star"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_toRightOf="@id/text_popular"
-                    tools:text="@string/default_popular"
+                    tools:text="@string/_0_0"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text16sp" />
 
@@ -112,7 +112,7 @@
                     android:layout_below="@+id/text_popular"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_toRightOf="@+id/text_rate_count"
-                    tools:text="@string/default_popular"
+                    tools:text="@string/_0_0"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text16sp" />
 
@@ -137,7 +137,7 @@
                 android:layout_below="@id/relative_rate"
                 android:layout_marginTop="@dimen/margin"
                 android:layout_toRightOf="@+id/release_date"
-                tools:text="@string/default_release_date"
+                tools:text="@string/default_release"
                 android:textSize="@dimen/text18sp" />
 
             <TextView

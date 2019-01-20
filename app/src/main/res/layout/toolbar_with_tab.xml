@@ -20,7 +20,7 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
             app:title="@string/title"
-            app:titleTextColor="#FFFF"/>
+            app:titleTextColor="@android:color/white"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_main"

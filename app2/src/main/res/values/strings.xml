@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Submission 4 Favorite</string>
+
+    <string name="image_poster">Image Poster</string>
+    <string name="text">Text</string>
+    <string name="overview">Overview</string>
+    <string name="title">Title</string>
+    <string name="image_backdrop">Image Backdrop</string>
+    <string name="_0_0">0.0</string>
+    <string name="popularity">Popularity :</string>
+    <string name="rate_count">Rate Count :</string>
+    <string name="release_date">Release Date :</string>
+    <string name="default_release">06December1997</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="toolbar_main">Movie</string>
+    <string name="toolbar_detail">Detail Movie</string>
+    <string name="upz">Upz,..</string>
+    <string name="seem_s_you_have_no_favorite_movie_yet">Seem\'s you have no Favorite Movie yet,</string>
+    <string name="try_to_add_some">Let\'s try to add some Favorite first!</string>
+</resources>

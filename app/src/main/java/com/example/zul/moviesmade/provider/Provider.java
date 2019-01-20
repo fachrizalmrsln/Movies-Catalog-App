@@ -49,7 +49,6 @@ public class Provider extends ContentProvider {
                         @Nullable String selection, @Nullable String[] selectionArgs,
                         @Nullable String sortOrder) {
         Log.d(TAG, "query: called");
-
         Cursor cursor;
         switch (uriMatcher.match(uri)) {
             case DATA:
@@ -74,7 +73,6 @@ public class Provider extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         Log.d(TAG, "insert: called");
-
         long insert;
         switch (uriMatcher.match(uri)) {
             case DATA:
@@ -90,7 +88,6 @@ public class Provider extends ContentProvider {
     public int delete(@NonNull Uri uri, @Nullable String selection,
                       @Nullable String[] selectionArgs) {
         Log.d(TAG, "delete: called");
-
         int deleted;
         switch (uriMatcher.match(uri)) {
             case DATA_BY_ID:

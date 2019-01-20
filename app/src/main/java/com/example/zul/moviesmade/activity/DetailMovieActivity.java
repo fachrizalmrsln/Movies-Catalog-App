@@ -121,7 +121,6 @@ public class DetailMovieActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.d(TAG, "onOptionsItemSelected: called");
-
         switch (item.getItemId()) {
             case R.id.favorite_menu:
                 if (found == 0) {
@@ -146,8 +145,6 @@ public class DetailMovieActivity extends AppCompatActivity {
 
     private void insertData() {
         Log.d(TAG, "insertData: called");
-
-        mArrayList.clear();
 
         DataHelper dataHelper = new DataHelper(mContext);
         dataHelper.open();
