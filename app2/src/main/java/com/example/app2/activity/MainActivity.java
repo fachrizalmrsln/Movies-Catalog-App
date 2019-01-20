@@ -1,5 +1,6 @@
 package com.example.app2.activity;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -48,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         inItViews();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        inItViews();
+    }
 
     private void inItViews() {
         Log.d(TAG, "inItViews: called");
@@ -74,24 +81,30 @@ public class MainActivity extends AppCompatActivity {
     private void getAllData() {
         Log.d(TAG, "getAllData: called");
 
-        Cursor cursor = mContext.getContentResolver().query(
+        mCursorList = null;
+
+        ContentResolver resolver = mContext.getContentResolver();
+        Cursor cursor = resolver.query(
                 ContractProvider.CONTENT_URI,
                 null,
                 null,
                 null,
                 null
         );
+
         mCursorList = cursor;
-        mAdapter.newData(cursor);
+        mAdapter.addData(cursor);
 
-        if (mCursorList.getCount() != 0) {
-            Log.d(TAG, "getAllData: data found");
-            isEmpty = false;
-        } else {
-            Log.d(TAG, "getAllData: data not found");
+        if (mCursorList != null) {
+            if (mCursorList.getCount() != 0) {
+                Log.d(TAG, "getAllData: data found");
+                isEmpty = false;
+            } else {
+                Log.d(TAG, "getAllData: data not found");
+                isEmpty = true;
+            }
+        }else
             isEmpty = true;
-        }
-
     }
 
     private void isEmpty() {

@@ -12,7 +12,6 @@ public class DataHelper {
     private static final String TAG = "DataHelper";
 
     private static final String TABLE_NAME = DatabaseContract.TABLE_FAVORITE;
-    private static final String PRIMARY_KEY = DatabaseContract.COLUMN_PRIMARY_KEY;
     private static final String ID = DatabaseContract.COLUMN_ID;
 
     private Context mContext;
@@ -44,7 +43,7 @@ public class DataHelper {
         return sqLiteDatabase.rawQuery(
                     "SELECT * FROM "
                         + TABLE_NAME + " ORDER BY "
-                        + PRIMARY_KEY + " DESC",
+                        + ID + " DESC",
                 null
         );
     }
@@ -71,7 +70,7 @@ public class DataHelper {
 
     public int updateData(String id, ContentValues contentValues) {
         return sqLiteDatabase.update(TABLE_NAME, contentValues,
-                PRIMARY_KEY + " = ?", new String[]{id});
+                ID + " = ?", new String[]{id});
     }
 
 }

@@ -41,8 +41,8 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
             return new Favorite(mCursor);
     }
 
-    public void newData(Cursor mCursor) {
-        Log.d(TAG, "newData: called");
+    public void addData(Cursor mCursor) {
+        Log.d(TAG, "addData: called");
         this.mCursor = mCursor;
         notifyDataSetChanged();
     }
@@ -68,10 +68,13 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
     @Override
     public int getItemCount() {
         Log.d(TAG, "getItemCount: called");
-        if (mCursor.getCount() == 0)
-            return 0;
-        else
-            return mCursor.getCount();
+        if (mCursor != null) {
+            if (mCursor.getCount() == 0)
+                return 0;
+            else
+                return mCursor.getCount();
+        }
+        return 0;
     }
 
     class FavoriteHolder extends RecyclerView.ViewHolder {

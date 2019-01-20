@@ -93,7 +93,6 @@ public class Provider extends ContentProvider {
             case DATA_BY_ID:
                 deleted = dataHelper.deleteSomeData(uri.getLastPathSegment());
                 break;
-
             default:
                 deleted = 0;
                 break;

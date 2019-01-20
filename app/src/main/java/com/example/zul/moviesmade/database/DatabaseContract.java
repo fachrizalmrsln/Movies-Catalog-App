@@ -6,7 +6,6 @@ public class DatabaseContract implements BaseColumns {
 
     public static final String TABLE_FAVORITE = "table_favorite";
 
-    static final String COLUMN_PRIMARY_KEY = "column_primary_key";
     public static final String COLUMN_ID = "column_id";
     public static final String COLUMN_TITLE = "column_title";
     public static final String COLUMN_VOTE_AVERAGE = "column_vote_average";

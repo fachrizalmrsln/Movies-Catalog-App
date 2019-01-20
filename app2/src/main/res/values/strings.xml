@@ -12,7 +12,7 @@
     <string name="release_date">Release Date :</string>
     <string name="default_release">06December1997</string>
     <string name="synopsis">Synopsis</string>
-    <string name="toolbar_main">Movie</string>
+    <string name="toolbar_main">Favorite Movie</string>
     <string name="toolbar_detail">Detail Movie</string>
     <string name="upz">Upz,..</string>
     <string name="seem_s_you_have_no_favorite_movie_yet">Seem\'s you have no Favorite Movie yet,</string>

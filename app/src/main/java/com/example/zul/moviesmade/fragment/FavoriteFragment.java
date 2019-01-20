@@ -93,15 +93,15 @@ public class FavoriteFragment extends Fragment {
         if (cursor.getCount() != 0) {
             Log.d(TAG, "getAllData: data found");
             while (cursor.moveToNext()) {
-                String id = cursor.getString(1);
-                String title = cursor.getString(2);
+                String id = cursor.getString(0);
+                String title = cursor.getString(1);
                 String vote_average = cursor.getString(3);
-                String popular = cursor.getString(4);
-                String vote_count = cursor.getString(5);
-                String release_date = cursor.getString(6);
-                String over_view = cursor.getString(7);
-                String poster_path = cursor.getString(8);
-                String backdrop_path = cursor.getString(9);
+                String popular = cursor.getString(3);
+                String vote_count = cursor.getString(4);
+                String release_date = cursor.getString(5);
+                String over_view = cursor.getString(6);
+                String poster_path = cursor.getString(7);
+                String backdrop_path = cursor.getString(8);
                 mArrayList.add(new Favorite(id, title, vote_average, popular, vote_count,
                         release_date, over_view, poster_path, backdrop_path));
             }

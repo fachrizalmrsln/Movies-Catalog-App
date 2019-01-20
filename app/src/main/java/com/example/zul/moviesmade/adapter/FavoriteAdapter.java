@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder> {
 
-    private static final String TAG = "MovieAdapter";
+    private static final String TAG = "FavoriteAdapter";
 
     private Context mContext;
     private ArrayList<Favorite> mFavorite;

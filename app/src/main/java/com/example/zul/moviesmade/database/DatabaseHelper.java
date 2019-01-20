@@ -11,7 +11,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "favorite_movie.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = DatabaseContract.TABLE_FAVORITE;
-    private static final String PRIMARY_KEY = DatabaseContract.COLUMN_PRIMARY_KEY;
     private static final String ID = DatabaseContract.COLUMN_ID;
     private static final String TITLE = DatabaseContract.COLUMN_TITLE;
     private static final String VOTE_AVERAGE = DatabaseContract.COLUMN_VOTE_AVERAGE;
@@ -32,8 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + TABLE_NAME
                 +
                 "("
-                + PRIMARY_KEY + " INTEGER PRIMARY KEY NOT NULL, "
-                + ID + " TEXT NOT NULL, "
+                + ID + " INTEGER PRIMARY KEY NOT NULL, "
                 + TITLE + " TEXT NOT NULL, "
                 + VOTE_AVERAGE + " TEXT NOT NULL, "
                 + RELEASE_DATE + " TEXT NOT NULL, "
