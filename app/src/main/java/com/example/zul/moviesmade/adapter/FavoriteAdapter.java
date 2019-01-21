@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.activity.DetailMovieActivity;
 import com.example.zul.moviesmade.model.Favorite;
@@ -54,6 +55,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
         Glide.with(mContext)
                 .asBitmap()
                 .load(mFavorite.get(position).getPoster_path())
+                .apply(new RequestOptions().fitCenter())
                 .into(favoriteHolder.imageView);
         favoriteHolder.textViewTitle.setText(mFavorite.get(position).getTitle());
         favoriteHolder.textViewOverview.setText(mFavorite.get(position).getOver_view());

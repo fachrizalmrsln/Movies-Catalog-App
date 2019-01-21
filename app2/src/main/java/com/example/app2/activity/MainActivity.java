@@ -2,7 +2,9 @@ package com.example.app2.activity;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.Cursor;
+import android.os.Binder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.example.app2.provider.ContractProvider;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -68,18 +71,23 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter = new FavoriteAdapter(mContext, mCursorList);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        if (mContext.getResources().getConfiguration().orientation ==
+                Configuration.ORIENTATION_LANDSCAPE) {
+            mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
+        } else
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.smoothScrollToPosition(0);
 
         mAdapter.notifyDataSetChanged();
     }
 
     private void getAllData() {
         Log.d(TAG, "getAllData: called");
+
+        final long identifyToken = Binder.clearCallingIdentity();
 
         mCursorList = null;
 
@@ -105,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }else
             isEmpty = true;
+
+        Binder.restoreCallingIdentity(identifyToken);
     }
 
     private void isEmpty() {

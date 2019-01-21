@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.database.DataHelper;
 import com.example.zul.moviesmade.database.DatabaseContract;
@@ -104,6 +105,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         Glide.with(mContext)
                 .asBitmap()
                 .load(mBackdrop_path)
+                .apply(new RequestOptions().fitCenter())
                 .into(imageViewBackDrop);
 
         getSomeData(mId);

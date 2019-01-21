@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.app2.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -75,6 +76,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         Glide.with(mContext)
                 .asBitmap()
                 .load(mBackdrop_path)
+                .apply(new RequestOptions(). fitCenter())
                 .into(imageViewBackDrop);
     }
 

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.app2.R;
 import com.example.app2.activity.DetailMovieActivity;
 import com.example.app2.model.Favorite;
@@ -101,6 +102,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
             Glide.with(mContext)
                     .asBitmap()
                     .load(mFavorite.getPoster_path())
+                    .apply(new RequestOptions().fitCenter())
                     .into(imageView);
             textViewTitle.setText(mFavorite.getTitle());
             textViewOverview.setText(mFavorite.getOver_view());

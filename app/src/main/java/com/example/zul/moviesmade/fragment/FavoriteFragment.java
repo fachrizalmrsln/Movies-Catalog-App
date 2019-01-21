@@ -1,6 +1,7 @@
 package com.example.zul.moviesmade.fragment;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -28,13 +30,13 @@ import butterknife.ButterKnife;
 public class FavoriteFragment extends Fragment {
 
     private static final String TAG = "FavoriteFragment";
-    private Context mContext;
-    private ArrayList<Favorite> mArrayList;
     private static boolean isEmpty;
     @BindView(R.id.recycler_view_favorite)
     RecyclerView mRecyclerView;
     @BindView(R.id.relative_empty_favorite)
     RelativeLayout mRelativeLayout;
+    private Context mContext;
+    private ArrayList<Favorite> mArrayList;
 
     @Nullable
     @Override
@@ -71,12 +73,15 @@ public class FavoriteFragment extends Fragment {
 
         FavoriteAdapter mAdapter = new FavoriteAdapter(mContext, mArrayList);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        if (mContext.getResources().getConfiguration().orientation ==
+                Configuration.ORIENTATION_LANDSCAPE) {
+            mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
+        } else
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.smoothScrollToPosition(0);
 
         mAdapter.notifyDataSetChanged();
     }
@@ -118,7 +123,7 @@ public class FavoriteFragment extends Fragment {
             Log.d(TAG, "isEmpty: true");
             mRecyclerView.setVisibility(View.GONE);
             mRelativeLayout.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             Log.d(TAG, "isEmpty: false");
             mRecyclerView.setVisibility(View.VISIBLE);
             mRelativeLayout.setVisibility(View.GONE);

@@ -2,6 +2,7 @@ package com.example.zul.moviesmade.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -35,10 +36,9 @@ import retrofit2.Callback;
 public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";
-    private Context mContext;
-    private ArrayList<Result> mArrayList;
-    private String mLanguage;
-    private String mMovieSearch;
+    private static final String RECYCLER_LAYOUT_STATE = "bundle_recycler_state";
+    private static String LIST_STATE = "list_state";
+    private static boolean state;
     @BindView(R.id.recycler_view_main)
     RecyclerView mRecyclerView;
     @BindView(R.id.et_search_main)
@@ -49,6 +49,11 @@ public class SearchActivity extends AppCompatActivity {
     Button mButtonSearch;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    private Context mContext;
+    private ArrayList<Result> mArrayList;
+    private String mLanguage;
+    private String mMovieSearch;
+    private Parcelable savedRecyclerLayoutState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +71,18 @@ public class SearchActivity extends AppCompatActivity {
 
         mProgressBar.setVisibility(View.GONE);
 
+        if (!state)
+            savedInstanceState = null;
+
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreateView: state not null");
+
+            mArrayList = savedInstanceState.getParcelableArrayList(LIST_STATE);
+            savedRecyclerLayoutState = savedInstanceState.getParcelable(RECYCLER_LAYOUT_STATE);
+            setRecyclerView();
+        } else
+            Log.d(TAG, "onCreateView: state is null");
+
         mButtonSearch.setOnClickListener(v -> {
             Log.d(TAG, "onClick: clicked");
 
@@ -76,6 +93,50 @@ public class SearchActivity extends AppCompatActivity {
             else
                 inIteViews(mMovieSearch);
         });
+
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState: called");
+
+        if (getResources() != null && mRecyclerView.getLayoutManager() != null) {
+            Log.d(TAG, "onSaveInstanceState: state saved");
+            outState.putParcelableArrayList(LIST_STATE, mArrayList);
+            outState.putParcelable(RECYCLER_LAYOUT_STATE,
+                    mRecyclerView.getLayoutManager().onSaveInstanceState());
+            state = true;
+        } else {
+            Log.d(TAG, "onSaveInstanceState: null state saved");
+            state = false;
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "onRestoreInstanceState: called");
+
+        if (!state)
+            savedInstanceState = null;
+
+        if (savedRecyclerLayoutState == null) {
+            if (savedInstanceState != null) {
+                Log.d(TAG, "onRestoreInstanceState: state not null");
+                mArrayList = savedInstanceState.getParcelableArrayList(LIST_STATE);
+                savedRecyclerLayoutState = savedInstanceState.getParcelable(RECYCLER_LAYOUT_STATE);
+            } else
+                Log.d(TAG, "onRestoreInstanceState: state is null");
+        }
+    }
+
+    private void restoreLayoutManagerPosition() {
+        Log.d(TAG, "restoreLayoutManagerPosition: called");
+
+        if (savedRecyclerLayoutState != null && mRecyclerView.getLayoutManager() != null) {
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
 
     }
 
@@ -106,7 +167,7 @@ public class SearchActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.smoothScrollToPosition(0);
+        restoreLayoutManagerPosition();
 
         mAdapter.notifyDataSetChanged();
 
@@ -142,6 +203,7 @@ public class SearchActivity extends AppCompatActivity {
                     mArrayList.clear();
                     mArrayList.addAll(results);
                     setRecyclerView();
+                    mRecyclerView.smoothScrollToPosition(0);
 
                     if (results.isEmpty()) {
                         Log.d(TAG, "onResponse: searched movie not found");

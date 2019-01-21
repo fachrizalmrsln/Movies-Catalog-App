@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.activity.DetailMovieActivity;
 import com.example.zul.moviesmade.model.Result;
@@ -57,6 +58,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         Glide.with(mContext)
                 .asBitmap()
                 .load(mResults.get(position).getPosterPath())
+                .apply(new RequestOptions().fitCenter())
                 .into(movieHolder.imageView);
 
         movieHolder.textViewTitle.setText(mResults.get(position).getTitle());
