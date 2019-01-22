@@ -12,6 +12,17 @@ import java.util.List;
 
 public class Result implements Parcelable {
 
+    public static final Parcelable.Creator<Result> CREATOR = new Parcelable.Creator<Result>() {
+        @Override
+        public Result createFromParcel(Parcel source) {
+            return new Result(source);
+        }
+
+        @Override
+        public Result[] newArray(int size) {
+            return new Result[size];
+        }
+    };
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
@@ -55,20 +66,26 @@ public class Result implements Parcelable {
     @Expose
     private Double voteAverage;
 
+    private Result(Parcel in) {
+        this.posterPath = in.readString();
+        this.adult = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.overview = in.readString();
+        this.releaseDate = in.readString();
+        this.genreIds = new ArrayList<>();
+        in.readList(this.genreIds, Integer.class.getClassLoader());
+        this.id = in.readString();
+        this.originalTitle = in.readString();
+        this.originalLanguage = in.readString();
+        this.title = in.readString();
+        this.backdropPath = in.readString();
+        this.popularity = (Double) in.readValue(Double.class.getClassLoader());
+        this.voteCount = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.video = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.voteAverage = (Double) in.readValue(Double.class.getClassLoader());
+    }
+
     public String getPosterPath() {
         return BuildConfig.POSTER_PATH + posterPath;
-    }
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
-    public Boolean getAdult() {
-        return adult;
-    }
-
-    public void setAdult(Boolean adult) {
-        this.adult = adult;
     }
 
     public String getOverview() {
@@ -87,36 +104,12 @@ public class Result implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
-    public List<Integer> getGenreIds() {
-        return genreIds;
-    }
-
-    public void setGenreIds(List<Integer> genreIds) {
-        this.genreIds = genreIds;
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getOriginalTitle() {
-        return originalTitle;
-    }
-
-    public void setOriginalTitle(String originalTitle) {
-        this.originalTitle = originalTitle;
-    }
-
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
-
-    public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
     }
 
     public String getTitle() {
@@ -131,40 +124,16 @@ public class Result implements Parcelable {
         return BuildConfig.BACKDROP_PATH + backdropPath;
     }
 
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
-    }
-
     public Double getPopularity() {
         return popularity;
-    }
-
-    public void setPopularity(Double popularity) {
-        this.popularity = popularity;
     }
 
     public Integer getVoteCount() {
         return voteCount;
     }
 
-    public void setVoteCount(Integer voteCount) {
-        this.voteCount = voteCount;
-    }
-
-    public Boolean getVideo() {
-        return video;
-    }
-
-    public void setVideo(Boolean video) {
-        this.video = video;
-    }
-
     public Double getVoteAverage() {
         return voteAverage;
-    }
-
-    public void setVoteAverage(Double voteAverage) {
-        this.voteAverage = voteAverage;
     }
 
     @Override
@@ -189,34 +158,4 @@ public class Result implements Parcelable {
         dest.writeValue(this.video);
         dest.writeValue(this.voteAverage);
     }
-
-    private Result(Parcel in) {
-        this.posterPath = in.readString();
-        this.adult = (Boolean) in.readValue(Boolean.class.getClassLoader());
-        this.overview = in.readString();
-        this.releaseDate = in.readString();
-        this.genreIds = new ArrayList<                                                                                      >();
-        in.readList(this.genreIds, Integer.class.getClassLoader());
-        this.id = in.readString();
-        this.originalTitle = in.readString();
-        this.originalLanguage = in.readString();
-        this.title = in.readString();
-        this.backdropPath = in.readString();
-        this.popularity = (Double) in.readValue(Double.class.getClassLoader());
-        this.voteCount = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.video = (Boolean) in.readValue(Boolean.class.getClassLoader());
-        this.voteAverage = (Double) in.readValue(Double.class.getClassLoader());
-    }
-
-    public static final Parcelable.Creator<Result> CREATOR = new Parcelable.Creator<Result>() {
-        @Override
-        public Result createFromParcel(Parcel source) {
-            return new Result(source);
-        }
-
-        @Override
-        public Result[] newArray(int size) {
-            return new Result[size];
-        }
-    };
 }
