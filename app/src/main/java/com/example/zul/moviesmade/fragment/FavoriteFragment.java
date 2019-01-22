@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,13 +31,16 @@ import butterknife.ButterKnife;
 public class FavoriteFragment extends Fragment {
 
     private static final String TAG = "FavoriteFragment";
+    private static final String RECYCLER_LAYOUT_STATE = "bundle_recycler_state";
     private static boolean isEmpty;
+    private static boolean state;
     @BindView(R.id.recycler_view_favorite)
     RecyclerView mRecyclerView;
     @BindView(R.id.relative_empty_favorite)
     RelativeLayout mRelativeLayout;
     private Context mContext;
     private ArrayList<Favorite> mArrayList;
+    private Parcelable savedRecyclerLayoutState;
 
     @Nullable
     @Override
@@ -51,6 +55,20 @@ public class FavoriteFragment extends Fragment {
 
         mContext = getContext();
 
+        if (!state)
+            savedInstanceState = null;
+
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreateView: state not null");
+
+            savedRecyclerLayoutState = savedInstanceState.getParcelable(RECYCLER_LAYOUT_STATE);
+            setRecyclerView();
+        } else {
+            Log.d(TAG, "onCreateView: state is null");
+
+            inItViews();
+        }
+
         return view;
     }
 
@@ -59,6 +77,48 @@ public class FavoriteFragment extends Fragment {
         super.onResume();
         Log.d(TAG, "onResume: called");
         inItViews();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState: called");
+
+        if (getView() != null && mRecyclerView.getLayoutManager() != null) {
+            Log.d(TAG, "onSaveInstanceState: state saved");
+            outState.putParcelable(RECYCLER_LAYOUT_STATE,
+                    mRecyclerView.getLayoutManager().onSaveInstanceState());
+            state = true;
+        } else {
+            Log.d(TAG, "onSaveInstanceState: null state saved");
+            state = false;
+        }
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.d(TAG, "onViewStateRestored: called");
+
+        if (!state)
+            savedInstanceState = null;
+
+        if (savedRecyclerLayoutState == null) {
+            if (savedInstanceState != null) {
+                Log.d(TAG, "onViewStateRestored: state not null");
+                savedRecyclerLayoutState = savedInstanceState.getParcelable(RECYCLER_LAYOUT_STATE);
+            } else
+                Log.d(TAG, "onViewStateRestored: state is null");
+        }
+    }
+
+    private void restoreLayoutManagerPosition() {
+        Log.d(TAG, "restoreLayoutManagerPosition: called");
+
+        if (savedRecyclerLayoutState != null && mRecyclerView.getLayoutManager() != null) {
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
+
     }
 
     private void inItViews() {
@@ -82,6 +142,7 @@ public class FavoriteFragment extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
+        restoreLayoutManagerPosition();
 
         mAdapter.notifyDataSetChanged();
     }

@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -14,6 +15,7 @@ import com.example.app2.R;
 import com.example.app2.adapter.FavoriteAdapter;
 import com.example.app2.provider.ContractProvider;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -26,7 +28,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String RECYCLER_LAYOUT_STATE = "bundle_recycler_state";
     private static boolean isEmpty;
+    private static boolean state;
     @BindView(R.id.recycler_view_favorite)
     RecyclerView mRecyclerView;
     @BindView(R.id.relative_empty_favorite)
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private FavoriteAdapter mAdapter;
     private Cursor mCursorList;
+    private Parcelable savedRecyclerLayoutState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +54,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.toolbar_main);
 
-        inItViews();
+        if (!state)
+            savedInstanceState = null;
+
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreateView: state not null");
+
+            savedRecyclerLayoutState = savedInstanceState.getParcelable(RECYCLER_LAYOUT_STATE);
+            setRecyclerView();
+        } else {
+            Log.d(TAG, "onCreateView: state is null");
+
+            inItViews();
+        }
     }
 
     @Override
@@ -57,6 +74,48 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         inItViews();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState: called");
+
+        if (getResources() != null && mRecyclerView.getLayoutManager() != null) {
+            Log.d(TAG, "onSaveInstanceState: state saved");
+            outState.putParcelable(RECYCLER_LAYOUT_STATE,
+                    mRecyclerView.getLayoutManager().onSaveInstanceState());
+            state = true;
+        } else {
+            Log.d(TAG, "onSaveInstanceState: null state saved");
+            state = false;
+        }
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "onRestoreInstanceState: called");
+
+        if (!state)
+            savedInstanceState = null;
+
+        if (savedRecyclerLayoutState == null) {
+            if (savedInstanceState != null) {
+                Log.d(TAG, "onRestoreInstanceState: state not null");
+                savedRecyclerLayoutState = savedInstanceState.getParcelable(RECYCLER_LAYOUT_STATE);
+            } else
+                Log.d(TAG, "onRestoreInstanceState: state is null");
+        }
+    }
+
+    private void restoreLayoutManagerPosition() {
+        Log.d(TAG, "restoreLayoutManagerPosition: called");
+
+        if (savedRecyclerLayoutState != null && mRecyclerView.getLayoutManager() != null) {
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
+
     }
 
     private void inItViews() {
@@ -80,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
+        restoreLayoutManagerPosition();
 
         mAdapter.notifyDataSetChanged();
     }
@@ -111,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "getAllData: data not found");
                 isEmpty = true;
             }
-        }else
+        } else
             isEmpty = true;
 
         Binder.restoreCallingIdentity(identifyToken);
