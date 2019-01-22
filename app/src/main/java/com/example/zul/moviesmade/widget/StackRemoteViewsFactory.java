@@ -35,24 +35,13 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
     public void onCreate() {
         Log.d(TAG, "onCreate: called");
 
-        mArrayList = new ArrayList<>();
-
-        DataHelper dataHelper = new DataHelper(mContext);
-        dataHelper.open();
-
-        final Cursor cursor = dataHelper.getAllData();
-        if (cursor.getCount() != 0) {
-            Log.d(TAG, "getAllData: data found");
-            while (cursor.moveToNext()) {
-                String backdrop_path = cursor.getString(8);
-                mArrayList.add(new Favorite(backdrop_path));
-            }
-        }
-
     }
 
     @Override
     public void onDataSetChanged() {
+        Log.d(TAG, "onDataSetChanged: called");
+
+        getFavorite();
     }
 
     @Override
@@ -69,7 +58,8 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
     public RemoteViews getViewAt(int position) {
         Log.d(TAG, "getViewAt: current position " + position);
 
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_item);
+        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(),
+                R.layout.widget_item);
 
         try {
             Bitmap bitmap = Glide.with(mContext)
@@ -112,4 +102,25 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
     public boolean hasStableIds() {
         return false;
     }
+
+    private void getFavorite() {
+        Log.d(TAG, "getFavorite: called");
+
+        mArrayList = new ArrayList<>();
+
+        DataHelper dataHelper = new DataHelper(mContext);
+        dataHelper.open();
+
+        final Cursor cursor = dataHelper.getAllData();
+        if (cursor.getCount() != 0) {
+            Log.d(TAG, "getAllData: data found");
+            while (cursor.moveToNext()) {
+                String backdrop_path = cursor.getString(8);
+                mArrayList.add(new Favorite(backdrop_path));
+            }
+        } else
+            Log.d(TAG, "getFavorite: no data found");
+        dataHelper.close();
+    }
+
 }
