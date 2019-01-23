@@ -33,10 +33,10 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/margin4dp"
                 android:layout_marginRight="@dimen/margin4dp"
-                tools:text="@string/title"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/title" />
 
             <RelativeLayout
                 android:id="@+id/relative_rate"
@@ -63,10 +63,11 @@
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_marginRight="@dimen/margin4dp"
                     android:layout_toRightOf="@id/star"
-                    tools:text="@string/default_rate"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/default_rate" />
 
                 <TextView
                     android:id="@+id/text_popular"
@@ -74,8 +75,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/star"
                     android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
                     android:layout_marginTop="@dimen/margin4dp"
+                    android:layout_marginRight="@dimen/margin"
                     android:text="@string/popularity"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text16sp"
@@ -88,9 +89,10 @@
                     android:layout_below="@+id/star"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_toRightOf="@id/text_popular"
-                    tools:text="@string/default_popular"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text16sp" />
+                    android:textSize="@dimen/text16sp"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/default_popular" />
 
                 <TextView
                     android:id="@+id/text_rate_count"
@@ -98,8 +100,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_popularity_detail"
                     android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
                     android:layout_marginTop="@dimen/margin4dp"
+                    android:layout_marginRight="@dimen/margin"
                     android:text="@string/rate_count"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text16sp"
@@ -112,9 +114,10 @@
                     android:layout_below="@+id/text_popular"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_toRightOf="@+id/text_rate_count"
-                    tools:text="@string/default_popular"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text16sp" />
+                    android:textSize="@dimen/text16sp"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="@string/default_popular" />
 
             </RelativeLayout>
 
@@ -137,8 +140,9 @@
                 android:layout_below="@id/relative_rate"
                 android:layout_marginTop="@dimen/margin"
                 android:layout_toRightOf="@+id/release_date"
-                tools:text="@string/default_release_date"
-                android:textSize="@dimen/text18sp" />
+                android:textSize="@dimen/text18sp"
+                tools:ignore="RtlHardcoded"
+                tools:text="@string/default_release_date" />
 
             <TextView
                 android:id="@+id/text_sub_title_detail"
@@ -160,8 +164,8 @@
                 android:layout_marginLeft="@dimen/margin4dp"
                 android:layout_marginTop="@dimen/margin4dp"
                 android:layout_marginRight="@dimen/margin4dp"
-                tools:text="@string/overview"
-                android:textSize="@dimen/text16sp" />
+                android:textSize="@dimen/text16sp"
+                tools:text="@string/overview" />
 
         </RelativeLayout>
 

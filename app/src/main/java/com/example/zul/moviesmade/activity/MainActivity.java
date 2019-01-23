@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentSearch);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
-            case R.id.language_main:
-                Intent intentLanguage = new Intent(mContext, LanguageActivity.class);
+            case R.id.settings_menu:
+                Intent intentLanguage = new Intent(mContext, SettingsActivity.class);
                 startActivity(intentLanguage);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;

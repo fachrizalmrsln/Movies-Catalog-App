@@ -6,12 +6,11 @@
     android:orientation="vertical"
     tools:mContext=".Activity.MainActivity">
 
-    <include
-        layout="@layout/toolbar_with_tab"/>
+    <include layout="@layout/toolbar_with_tab" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

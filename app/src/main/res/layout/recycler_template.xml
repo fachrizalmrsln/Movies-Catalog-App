@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -33,10 +33,10 @@
                 android:layout_margin="@dimen/margin4dp"
                 android:ellipsize="end"
                 android:singleLine="true"
-                tools:text="@string/title"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/title" />
 
             <TextView
                 android:id="@+id/text_overview_template"
@@ -45,9 +45,9 @@
                 android:layout_margin="@dimen/margin4dp"
                 android:ellipsize="end"
                 android:lines="3"
-                tools:text="@string/overview"
                 android:textSize="@dimen/text18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/overview" />
 
         </LinearLayout>
 

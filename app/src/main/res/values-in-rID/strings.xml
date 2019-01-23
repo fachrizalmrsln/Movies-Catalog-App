@@ -11,9 +11,9 @@
     <string name="toolbar_search">Cari Film</string>
     <string name="toolbar_detail">Detail Film</string>
     <string name="search_menu">Menu Cari</string>
-    <string name="language_menu">Menu Bahasa</string>
+    <string name="menu_settings">Menu Pengaturan</string>
     <string name="toolbar_main">Film</string>
-    <string name="toolbar_language">Pengaturan Bahasa</string>
+    <string name="toolbar_settings">Pengaturan</string>
     <string name="language">Ganti Bahasa</string>
     <string name="current_language">Bahasa Indonesia (ID)</string>
     <string name="up_coming">Segera Tayang</string>
@@ -22,4 +22,11 @@
     <string name="favorite">Favorit</string>
     <string name="seem_s_you_have_no_favorite_movie_yet">Sepertinya kamu belum memiliki Film Favorite,</string>
     <string name="try_to_add_some">Coba untuk menambahkan Favorite terlebih dahulu!</string>
+    <string name="notification">Pemberitahuan</string>
+    <string name="daily_reminder">Pengingat Harian</string>
+    <string name="update_reminder">Update Film Terbaru Yang Tayang</string>
+    <string name="toastDaily">Kamu akan diingatkan tiap jam 7 pagi</string>
+    <string name="toastUpdate">Kamu akan mendapatkan update tiap jam 8 pagi</string>
+    <string name="daily_content">Jangan sampai kelewatan. Ada Film bagus yang main tiap harinya !</string>
+    <string name="update_content">Film ini sekarang sudah main !</string>
 </resources>

@@ -25,7 +25,8 @@
             android:background="@android:color/transparent"
             android:hint="@string/search_here"
             android:inputType="textCapWords"
-            android:padding="@dimen/padding" />
+            android:padding="@dimen/padding"
+            android:theme="@style/SwitchTheme" />
 
         <Button
             android:id="@+id/btn_search_main"
@@ -42,7 +43,8 @@
         android:id="@+id/progress_bar_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/SwitchTheme" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_main"
