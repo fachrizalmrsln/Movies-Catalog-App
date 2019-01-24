@@ -5,6 +5,10 @@ import android.database.Cursor;
 import com.example.app2.database.DatabaseContract;
 import com.example.app2.provider.ContractProvider;
 
+/**
+ * copyright zul
+ **/
+
 public class Favorite {
 
     private String id;

@@ -36,6 +36,10 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+/**
+ * copyright zul
+ **/
+
 public class NowPlayingFragment extends Fragment {
 
     private static final String TAG = "NowPlayingFragment";

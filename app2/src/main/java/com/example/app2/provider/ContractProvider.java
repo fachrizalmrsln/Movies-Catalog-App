@@ -6,6 +6,10 @@ import android.util.Log;
 
 import com.example.app2.database.DatabaseContract;
 
+/**
+* copyright zul
+**/
+
 public class ContractProvider {
 
     private static final String TAG = "ContractProvider";

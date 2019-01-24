@@ -33,6 +33,10 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+/**
+ * copyright zul
+ **/
+
 public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";

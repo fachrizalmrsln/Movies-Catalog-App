@@ -7,6 +7,10 @@ import com.example.zul.moviesmade.BuildConfig;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * copyright zul
+ **/
+
 public class MovieClient {
 
     private static final String TAG = "MovieClient";

@@ -14,6 +14,10 @@ import com.example.zul.moviesmade.database.DatabaseContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * copyright zul
+ **/
+
 public class Provider extends ContentProvider {
 
     public static final String AUTHORITY = "com.example.zul.submission_4";

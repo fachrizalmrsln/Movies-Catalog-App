@@ -12,8 +12,9 @@ import android.widget.Toast;
 import com.example.zul.moviesmade.R;
 
 /**
- * Implementation of App Widget functionality.
- */
+ * copyright zul
+ **/
+
 public class FavoriteWidget extends AppWidgetProvider {
 
     public static final String TOAST_ACTION = "com.example.zul.TOAST_ACTION";

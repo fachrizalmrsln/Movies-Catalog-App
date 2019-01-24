@@ -11,6 +11,10 @@ import java.util.Calendar;
 
 import androidx.core.app.NotificationCompat;
 
+/**
+ * copyright zul
+ **/
+
 public class NotificationDaily extends BroadcastReceiver {
 
     private static final String TAG = "NotificationDaily";

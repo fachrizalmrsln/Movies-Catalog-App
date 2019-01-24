@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * copyright zul
+ **/
+
 public class Response {
 
     @SerializedName("results")

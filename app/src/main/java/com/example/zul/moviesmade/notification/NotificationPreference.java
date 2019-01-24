@@ -3,6 +3,10 @@ package com.example.zul.moviesmade.notification;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+/**
+ * copyright zul
+ **/
+
 public class NotificationPreference {
 
     private static final String KeyDaily = "KeyDaily";

@@ -28,6 +28,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * copyright zul
+ **/
+
 public class FavoriteFragment extends Fragment {
 
     private static final String TAG = "FavoriteFragment";

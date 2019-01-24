@@ -16,6 +16,10 @@ import com.example.zul.moviesmade.activity.MainActivity;
 
 import androidx.core.app.NotificationCompat;
 
+/**
+ * copyright zul
+ **/
+
 public class NotificationHelper extends ContextWrapper {
 
     public static final int REQUEST_CODE_DAILY = 1;

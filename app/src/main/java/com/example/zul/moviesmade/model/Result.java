@@ -10,6 +10,10 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * copyright zul
+ **/
+
 public class Result implements Parcelable {
 
     public static final Parcelable.Creator<Result> CREATOR = new Parcelable.Creator<Result>() {

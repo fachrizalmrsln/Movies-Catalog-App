@@ -25,6 +25,10 @@ import androidx.core.app.NotificationCompat;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+/**
+ * copyright zul
+ **/
+
 public class NotificationUpdate extends BroadcastReceiver {
 
     private static final String TAG = "NotificationUpdate";

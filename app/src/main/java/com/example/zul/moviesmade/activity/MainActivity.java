@@ -21,6 +21,10 @@ import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * copyright zul
+ **/
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";

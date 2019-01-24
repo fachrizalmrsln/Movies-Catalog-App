@@ -15,6 +15,10 @@ import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * copyright zul
+ **/
+
 public class DetailMovieActivity extends AppCompatActivity {
 
     public static final String EXTRA_TITLE = "extra_title";

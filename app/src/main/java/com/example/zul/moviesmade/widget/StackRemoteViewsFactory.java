@@ -18,6 +18,10 @@ import com.example.zul.moviesmade.model.Favorite;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * copyright zul
+ **/
+
 public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     private static final String TAG = "StackRemoteViewsFactory";

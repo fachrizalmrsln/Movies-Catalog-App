@@ -1,5 +1,9 @@
 package com.example.zul.moviesmade.model;
 
+/**
+ * copyright zul
+ **/
+
 public class Favorite {
 
     private String id;

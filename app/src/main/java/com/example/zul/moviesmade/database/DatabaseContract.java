@@ -2,6 +2,10 @@ package com.example.zul.moviesmade.database;
 
 import android.provider.BaseColumns;
 
+/**
+ * copyright zul
+ **/
+
 public class DatabaseContract implements BaseColumns {
 
     public static final String TABLE_FAVORITE = "table_favorite";

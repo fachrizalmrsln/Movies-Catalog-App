@@ -7,6 +7,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/**
+ * copyright zul
+ **/
+
 public class DataHelper {
 
     private static final String TAG = "DataHelper";
