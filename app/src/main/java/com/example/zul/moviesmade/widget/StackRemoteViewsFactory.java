@@ -26,13 +26,10 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
 
     private static final String TAG = "StackRemoteViewsFactory";
     private Context mContext;
-    private int mWidgetID;
     private ArrayList<Favorite> mArrayList;
 
     StackRemoteViewsFactory(Context mContext, Intent mIntent) {
         this.mContext = mContext;
-        this.mWidgetID = mIntent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID);
     }
 
     @Override

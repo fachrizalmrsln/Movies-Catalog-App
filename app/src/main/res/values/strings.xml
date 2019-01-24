@@ -34,7 +34,6 @@
     <string name="seem_s_you_have_no_favorite_movie_yet">Seem\'s you have no Favorite Movie yet,</string>
     <string name="try_to_add_some">Let\'s try to add some Favorite first!</string>
     <string name="appwidget_text" translatable="false">Favorite Movie</string>
-    <string name="add_widget" translatable="false">Add widget</string>
     <string name="no_favorite_found" translatable="false">No Favorite Movie found</string>
     <string name="widget" translatable="false">Widget</string>
     <string name="notification">Notification</string>
