@@ -24,14 +24,14 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private Context mContext;
-    private TabAdapter tabAdapter;
     @BindView(R.id.toolbar_tab)
     Toolbar toolbar;
     @BindView(R.id.tab_main)
     TabLayout tabLayout;
     @BindView(R.id.view_pager_main)
     ViewPager viewPagerMain;
+    private Context mContext;
+    private TabAdapter tabAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -82,7 +82,7 @@ public class SettingsActivity extends AppCompatActivity {
         aSwitchUpdate.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             if (isChecked) {
                 Log.d(TAG, "onCreate: DailyUpdate set on");
-                notificationUpdate.setUpdateNotification(mContext);
+                notificationUpdate.checkUpComingMovie(mContext);
                 Toast.makeText(mContext, R.string.toastUpdate,
                         Toast.LENGTH_SHORT).show();
                 notificationPreference.setUpdatePref(true);

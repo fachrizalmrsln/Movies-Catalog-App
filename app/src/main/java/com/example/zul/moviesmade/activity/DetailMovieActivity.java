@@ -200,7 +200,7 @@ public class DetailMovieActivity extends AppCompatActivity {
                         release_date, over_view, poster_path, backdrop_path));
                 found = 1;
             }
-        }else{
+        } else {
             Log.d(TAG, "getSomeData: id not found");
             found = 0;
         }
@@ -212,7 +212,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         if (found == 0) {
             Log.d(TAG, "setFavorite: add new favorite");
             menu.getItem(0).setIcon(R.drawable.ic_favorite_border);
-        }else {
+        } else {
             Log.d(TAG, "setFavorite: remove favorite");
             menu.getItem(0).setIcon(R.drawable.ic_favorite);
         }

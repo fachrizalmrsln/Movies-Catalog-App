@@ -87,21 +87,20 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentIntent(pendingIntent);
     }
 
-    public NotificationCompat.Builder getChannelUpdateNotification() {
-        Log.d(TAG, "getChannelUpdateNotification: called");
+    public NotificationCompat.Builder getChannelUpdateNotification(int id, String title) {
+        Log.d(TAG, "getChannelUpdateNotification: called " + id + " " + title);
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
-                REQUEST_CODE_UPDATE, intent,
+                id, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         return new NotificationCompat.Builder(getApplicationContext(), ID_CHANNEL_UPDATE)
                 .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000})
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setContentTitle(getResources().getString(R.string.update_reminder))
+                .setContentTitle(title)
                 .setContentText(getResources().getString(R.string.update_content))
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setAutoCancel(true)
-                .setChannelId(ID_CHANNEL_UPDATE)
                 .setContentIntent(pendingIntent);
     }
 

@@ -41,7 +41,7 @@ public class DataHelper {
     public Cursor getAllData() {
         Log.d(TAG, "getAllData: called");
         return sqLiteDatabase.rawQuery(
-                    "SELECT * FROM "
+                "SELECT * FROM "
                         + TABLE_NAME + " ORDER BY "
                         + ID + " DESC",
                 null
