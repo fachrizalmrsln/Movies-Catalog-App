@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         setViewPagerMain(viewPagerMain);
         tabLayout.setupWithViewPager(viewPagerMain);
-
     }
 
     private void setViewPagerMain(ViewPager viewPagerMain) {
