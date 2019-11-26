@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Submission 5</string>
+    <string name="app_name">Movie Catalog</string>
 
     <string name="search_here">Search Movie Here</string>
     <string name="text_button_search">Search</string>
