@@ -4,6 +4,7 @@ This project was created to accomplish my MADE class in dicoding. There is 5 sta
 # Features
 1. Retreving data from https://www.themoviedb.org.
 2. Searching data to https://www.themoviedb.org.
+3. Design Pattern (MVP)
 3. Recyclerview.
 4. Search.
 5. Java.
