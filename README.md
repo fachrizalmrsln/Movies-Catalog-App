@@ -1,4 +1,4 @@
-# MoviesMade
+# MoviesCatalog
 This project was created to accomplish my MADE class in dicoding. There is 5 stage for accomplish the class. But this project was the final. 
 
 # Features
