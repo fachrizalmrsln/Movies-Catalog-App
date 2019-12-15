@@ -1,7 +1,7 @@
 # MovieCatalog
 Movie Catalog is my final project for Dicoding certification MADE (Menjadi Android Deveoper Expert). In this app my using API from https://www.themoviedb.org to get all the data and other operation.
 
-# Screen Shoot
+# Screenshot
 ![Alt text](/screenshots/nowplayingactivity.png?raw=true "Now Playing")  ![Alt text](/screenshots/detailactivity.png?raw=true "Detail Movie")  ![Alt text](/screenshots/favoriteactivity.png?raw=true "Favorite Activity") ![Alt text](/screenshots/searchactivity.png?raw=true "Search Activity")  ![Alt text](/screenshots/favorite_moduleactivity.png?raw=true "Favorite Othe Module") 
 
 # Features
