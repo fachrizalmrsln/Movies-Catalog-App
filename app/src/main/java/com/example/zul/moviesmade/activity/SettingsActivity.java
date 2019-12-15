@@ -10,6 +10,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.notification.NotificationDaily;
 import com.example.zul.moviesmade.notification.NotificationPreference;
@@ -17,8 +20,6 @@ import com.example.zul.moviesmade.notification.NotificationUpdate;
 
 import java.util.Locale;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

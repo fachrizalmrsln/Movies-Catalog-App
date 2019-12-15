@@ -11,13 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.example.zul.moviesmade.R;
-import com.example.zul.moviesmade.adapter.FavoriteAdapter;
-import com.example.zul.moviesmade.database.DataHelper;
-import com.example.zul.moviesmade.model.Favorite;
-
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -25,6 +18,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.zul.moviesmade.R;
+import com.example.zul.moviesmade.adapter.FavoriteAdapter;
+import com.example.zul.moviesmade.database.DataHelper;
+import com.example.zul.moviesmade.model.Favorite;
+
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

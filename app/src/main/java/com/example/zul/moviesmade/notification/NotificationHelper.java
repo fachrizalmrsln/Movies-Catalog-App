@@ -11,10 +11,10 @@ import android.media.RingtoneManager;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.core.app.NotificationCompat;
+
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.activity.MainActivity;
-
-import androidx.core.app.NotificationCompat;
 
 /**
  * copyright zul

@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+
 import com.example.zul.moviesmade.BuildConfig;
 import com.example.zul.moviesmade.api.MovieClient;
 import com.example.zul.moviesmade.api.MovieService;
@@ -20,8 +23,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import retrofit2.Call;
 import retrofit2.Callback;
 

@@ -8,6 +8,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.zul.moviesmade.R;
 import com.example.zul.moviesmade.adapter.TabAdapter;
 import com.example.zul.moviesmade.fragment.FavoriteFragment;
@@ -15,9 +19,6 @@ import com.example.zul.moviesmade.fragment.NowPlayingFragment;
 import com.example.zul.moviesmade.fragment.UpComingFragment;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

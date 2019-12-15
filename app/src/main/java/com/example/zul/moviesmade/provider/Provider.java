@@ -8,11 +8,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-import com.example.zul.moviesmade.database.DataHelper;
-import com.example.zul.moviesmade.database.DatabaseContract;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.zul.moviesmade.database.DataHelper;
+import com.example.zul.moviesmade.database.DatabaseContract;
 
 /**
  * copyright zul

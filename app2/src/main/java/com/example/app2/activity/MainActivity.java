@@ -11,10 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.example.app2.R;
-import com.example.app2.adapter.FavoriteAdapter;
-import com.example.app2.provider.ContractProvider;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +18,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.app2.R;
+import com.example.app2.adapter.FavoriteAdapter;
+import com.example.app2.provider.ContractProvider;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
